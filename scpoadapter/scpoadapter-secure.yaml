@@ -54,4 +54,4 @@ canmodel:
           key:
             password-secure: "changeme"
         truststore:
-          password-secure: "changeme"        
+          password-secure: "changeme"
