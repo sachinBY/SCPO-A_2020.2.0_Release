@@ -79,9 +79,9 @@ scpo:
       errors:
         msg: "Continuous Errors in the batch"
     oracle:
-      host: in1-1019949lt1
+      host: md1npdlnxdb08.dev.corp.local
       port: "1521"
-      instance: O12CR201
+      instance: sca18pd
       user: SCPOMGR
       max:
         idle:
@@ -91,8 +91,8 @@ scpo:
         checkoutTimeout: "60000"
         maxIdleTime: "60000"
         idleConnectionTestPeriod: "60000"
-        maxPoolSize: "50"
-        minPoolSize: "20"
+        maxPoolSize: "20"
+        minPoolSize: "10"
         incBy: "10"
         stmtCacheSize: "10"
     truncateTable:
@@ -126,11 +126,11 @@ scpo:
   serviceInstance: "SCPO-CLUSTER"
   serviceNamedVersion: "SCPO-2020.1.0"
   ms:
-    enabled: "false"
+    enabled: "true"
     server:
       requester:
-        #config: "HTTPS_MS_Request_Configuration"
-        config: "HTTP_MS_Request_Configuration"
+        config: "HTTPS_MS_Request_Configuration"
+        #config: "HTTP_MS_Request_Configuration"
         base:
           path: "/messagestore/api/v3"
         storeclientid: "client_id"
@@ -188,15 +188,15 @@ file:
     enabled: "true"
 inbound:
   archive:
-    path: C:/scpo-2019.1.1/messageArchive/inbound
+    path: C:/scpo-2020.2.0/messageArchive/inbound
 outbound:
   archive:
-    path: C:/scpo-2019.1.1/messageArchive/outbound
+    path: C:/scpo-2020.2.0/messageArchive/outbound
 eframework:
   applicationId: jda-scpo-adapter
   errorReport:
     enabled: "true"
-    errorReportPath: C:/scpo-2020.1.0/errorReports
+    errorReportPath: C:/scpo-2020.2.0/errorReports
     title: SCPO Adapter
     htmlTemplatePath: errorReportTemplate.html
     payload:
@@ -528,7 +528,7 @@ bulk:
     store:
       host:
       type: "Local File Store"
-      path: "//IN2-1026937LT/u/SCPO"
+      path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO"
   callback:
     protocol: "FILE"
     ingestion:
