@@ -45,8 +45,7 @@ scpo:
     enable: "true"
     brokerURL: tcp://localhost:61616
     user: admin
-    #maxConnections: "5"
-    maxConnections: "20"
+    maxConnections: "5"
     concurrentConsumers: "3"
     initialRedeliveryDelay: "20000"
     redeliveryDelay: "20000"
