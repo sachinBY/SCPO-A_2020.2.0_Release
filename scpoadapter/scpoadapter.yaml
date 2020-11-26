@@ -86,8 +86,10 @@ scpo:
         checkoutTimeout: "60000"
         maxIdleTime: "60000"
         idleConnectionTestPeriod: "60000"
-        maxPoolSize: "50"
-        minPoolSize: "20"
+        #maxPoolSize: "50"
+        #minPoolSize: "20"
+        maxPoolSize: "20"
+        minPoolSize: "10"
         incBy: "10"
         stmtCacheSize: "10"
     truncateTable:
