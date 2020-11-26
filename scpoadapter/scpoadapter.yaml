@@ -32,6 +32,7 @@ jms:
   queue:
     mb:
       out: MB-SCPO
+      isprimarynode: false
       in: SCPO-MB
       error: SCPO-DLQMB
     scpo:
@@ -55,6 +56,10 @@ scpo:
     toLiveAckMode: "AUTO"
     toStagingTable: to-staging-table
     toStagingAckMode: "AUTO"
+    tostaging:
+      isprimarynode: false
+    tolive:
+      isprimarynode: false  
     
 ##########################################################
 #
@@ -74,9 +79,9 @@ scpo:
       errors:
         msg: "Continuous Errors in the batch"
     oracle:
-      host: md1npdlnxdb08.dev.corp.local
+      host: in1-1019949lt1
       port: "1521"
-      instance: sca18pd
+      instance: O12CR201
       user: SCPOMGR
       max:
         idle:
@@ -86,10 +91,8 @@ scpo:
         checkoutTimeout: "60000"
         maxIdleTime: "60000"
         idleConnectionTestPeriod: "60000"
-        #maxPoolSize: "50"
-        #minPoolSize: "20"
-        maxPoolSize: "20"
-        minPoolSize: "10"
+        maxPoolSize: "50"
+        minPoolSize: "20"
         incBy: "10"
         stmtCacheSize: "10"
     truncateTable:
@@ -123,11 +126,11 @@ scpo:
   serviceInstance: "SCPO-CLUSTER"
   serviceNamedVersion: "SCPO-2020.1.0"
   ms:
-    enabled: "true"
+    enabled: "false"
     server:
       requester:
-        config: "HTTPS_MS_Request_Configuration"
-        #config: "HTTP_MS_Request_Configuration"
+        #config: "HTTPS_MS_Request_Configuration"
+        config: "HTTP_MS_Request_Configuration"
         base:
           path: "/messagestore/api/v3"
         storeclientid: "client_id"
@@ -185,15 +188,15 @@ file:
     enabled: "true"
 inbound:
   archive:
-    path: C:/scpo-2020.2.0/messageArchive/inbound
+    path: C:/scpo-2019.1.1/messageArchive/inbound
 outbound:
   archive:
-    path: C:/scpo-2020.2.0/messageArchive/outbound
+    path: C:/scpo-2019.1.1/messageArchive/outbound
 eframework:
   applicationId: jda-scpo-adapter
   errorReport:
     enabled: "true"
-    errorReportPath: C:/scpo-2020.2.0/errorReports
+    errorReportPath: C:/scpo-2020.1.0/errorReports
     title: SCPO Adapter
     htmlTemplatePath: errorReportTemplate.html
     payload:
@@ -525,7 +528,7 @@ bulk:
     store:
       host:
       type: "Local File Store"
-      path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO"
+      path: "//IN2-1026937LT/u/SCPO"
   callback:
     protocol: "FILE"
     ingestion:
