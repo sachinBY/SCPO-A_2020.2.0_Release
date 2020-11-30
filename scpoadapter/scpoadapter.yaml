@@ -281,7 +281,8 @@ gs1:
       message: "gs1"    
   dfutoskufcst:
     preprocessing: "true"
-    message: "forecast2Message"
+    #message: "forecast2Message"
+    message: forecastMessage
     out:
       message: "gs1"    
   skuhist:
